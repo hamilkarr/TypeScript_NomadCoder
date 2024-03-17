@@ -5,5 +5,12 @@ type Player = {
     age: Age;
 };
 
-const playMaker = (name: string): Player => ({ name, age: 30 });
+const playMaker = (name: string): Player => {
+    return {
+        name,
+        age: 30,
+    };
+};
 const nico = playMaker('nico');
+
+console.log(nico);
