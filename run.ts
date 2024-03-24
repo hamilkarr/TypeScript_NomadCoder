@@ -15,7 +15,6 @@ function hello() {
 }
 
 const c = hello();
-c.toUpperCase();
 
 function hello2(name: string | number) {
     if (typeof name === 'string') {
