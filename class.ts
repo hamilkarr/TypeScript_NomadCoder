@@ -1,20 +1,24 @@
-abstract class User {
+interface User {
+    firstName: string;
+    lastName: string;
+    sayHi(name: string): string;
+    fullName(): string;
+}
+
+interface Human {
+    health: number;
+}
+
+class Player implements User, Human {
     constructor(
-        protected firstName: string,
-        protected lastName: string,
-        protected nickname: string
+        public firstName: string,
+        public lastName: string,
+        public health: number
     ) {}
-    abstract getNickname(): void;
-    getFullName() {
+    fullName() {
         return `${this.firstName} ${this.lastName}`;
     }
-}
-
-class Player extends User {
-    getNickname() {
-        console.log(this.nickname);
+    sayHi(name: string) {
+        return `Hello ${name}, my name is ${this.fullName()}`;
     }
 }
-
-const nico = new Player('Nico', 'Hernandez', 'NicoHernandez');
-console.log(nico.getFullName()); // Nico Hernandez
